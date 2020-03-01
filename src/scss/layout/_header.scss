@@ -1,0 +1,175 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: $dark-blue;
+  padding: 5px 0;
+
+  @include media('>=desktop') {
+    padding: 0;
+  }
+
+  .navbar-collapse {
+    @include media('>=desktop') {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include media('<desktop') {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: $sky-blue-fade;
+      border-bottom: 1px solid rgba($sky-blue-dark, 0.5);
+      border-top: 1px solid rgba($sky-blue-dark, 0.5);
+    }
+  }
+}
+
+.logo-holder {
+  margin: 0 0 0 -10px;
+
+  @include media('>=tablet') {
+    margin: 0;
+  }
+}
+
+.logo-img {
+  width: 50px;
+}
+
+.logo-text {
+  font-family: $font-audiowide;
+  color: $sky-blue;
+
+  .title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    @include media('>=desktop') {
+      font-size: 18px;
+    }
+  }
+
+  .slogan {
+    font-size: 10px;
+    line-height: 1.1;
+    text-transform: lowercase;
+
+    @include media('>=tablet') {
+      font-size: 12px;
+    }
+  }
+}
+
+.navbar {
+  position: static;
+
+  .navbar-toggler {
+    padding: 0;
+    border: 0;
+  }
+}
+
+.navbar-nav {
+  font-family: $font-audiowide;
+  font-weight: 700;
+
+  .nav-link {
+    color: $sky-blue !important;
+    padding: 25px 20px !important;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 2px 0 0;
+
+    &.active {
+      background: $sky-blue;
+      color: $white !important;
+    }
+
+    &:hover {
+      color: $white !important;
+    }
+  }
+
+  .nav-item {
+    &.active {
+      .nav-link {
+        background: $sky-blue;
+        color: $white !important;
+      }
+    }
+
+    &:hover {
+      .dropdown-menu {
+        //display: block !important;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    margin-top: -10px;
+    background: $sky-blue-fade;
+
+    .dropdown-item {
+      color: $sky-blue;
+
+      &:hover {
+        background: $sky-blue-soft;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

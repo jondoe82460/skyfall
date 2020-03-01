@@ -1,0 +1,243 @@
+body {
+  @include media('>=desktop') {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+#wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 20px;
+  display: block;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+h1,
+.h1 {
+  @include font-size($h1-font-size);
+  letter-spacing: -0.5px;
+
+  @include media('>=desktop') {
+    font-size: $h1-lg-font-size;
+    line-height: 80px;
+  }
+}
+
+h2,
+.h2 {
+  @include font-size($h2-font-size);
+  letter-spacing: -0.5px;
+
+  @include media('>=desktop') {
+    font-size: $h2-lg-font-size;
+    line-height: 60px;
+  }
+
+  &.xl {
+    @include media('>=desktop') {
+      font-size: 60px;
+      line-height: 64px;
+    }
+  }
+}
+
+h3,
+.h3 {
+  @include font-size($h3-font-size);
+  margin-bottom: 15px;
+
+  @include media('>=desktop') {
+    font-size: $h3-lg-font-size;
+    line-height: 44px;
+  }
+
+  &.lg {
+    @include media('>=desktop') {
+      font-size: 34px;
+      line-height: 44px;
+    }
+  }
+}
+
+h4,
+.h4 {
+  @include font-size($h4-font-size);
+
+  @include media('>=desktop') {
+    font-size: $h4-lg-font-size;
+    line-height: 28px;
+  }
+}
+
+h5,
+.h5 {
+  @include font-size($h5-font-size);
+}
+
+h6,
+.h6 {
+  @include font-size($h6-font-size);
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+a,
+button {
+  outline: none !important;
+  @include animate(color background border opacity visibility box-shadow);
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  vertical-align: top;
+}
+
+.btn {
+  position: relative;
+  @include animate(color background border opacity visibility box-shadow);
+  height: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-width: 220px;
+  white-space: nowrap;
+
+  @include media('>=desktop') {
+    min-width: 260px;
+  }
+
+  &.btn-info {
+    //background: linear-gradient(45deg, rgba(0,152,219,1) 0%,rgba(243,200,8,1) 100%);
+    border-radius: 0;
+    margin: 0 -15px 0 0;
+    padding: 22px 10px;
+    display: block;
+    border: 0;
+    min-width: 50px;
+    color: $white;
+    height: auto;
+    //font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    background: linear-gradient(270deg, $sky-blue, $gold);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 2s ease infinite;
+    -moz-animation: AnimationName 2s ease infinite;
+    animation: AnimationName 2s ease infinite;
+
+    &:hover {
+      background: $sky-blue !important;
+    }
+  }
+}
+
+.has-bg {
+  display: block;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.has-overlay {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.block-vc {
+  min-height: 300px;
+
+  @include media('>=desktop') {
+    min-height: 362px;
+  }
+
+  &:after {
+    content: '';
+    min-height: inherit;
+  }
+}
+
+.list-text {
+  >li {
+    position: relative;
+    margin-bottom: 30px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 20px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $blue;
+      position: relative;
+      top: 10px;
+
+      .text-white & {
+        background: $white;
+      }
+    }
+  }
+}
+
+.ordered-list {
+  @extend %listreset;
+  counter-reset: item;
+  height: 1%;
+
+  >li {
+    margin-bottom: 30px;
+
+    &:before {
+      content: counters(item, '.', decimal) '.';
+      counter-increment: item;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 20px;
+    }
+  }
+}
